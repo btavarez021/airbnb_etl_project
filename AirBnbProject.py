@@ -15,8 +15,12 @@ import snowflake.connector
 # and download CSV files from AirBnb for hosts, listings, and reviews.
 @task
 def extract_data_from_s3(bucket_name: str, file_key: str) -> str:
+
+    # Create client and give connection configs.
     s3 = boto3.client('s3', config=Config(signature_version=UNSIGNED))
     local_path = f'C:\\Users\\Benny\\AirBnbProject\\{file_key}'
+
+    # Download CSV file that's is currently stored in S3
     s3.download_file(bucket_name, file_key, local_path)
     return local_path
 
@@ -93,7 +97,6 @@ def upload_to_snowflake(df: pd.DataFrame, table_name: str, local_path: str):
 
 
 # Start the Prefect Flow for each task above
-# @flow(name="Airbnb_ETL")
 @flow(name="airbnb-deployment")
 def airbnb_etl_flow():
 
@@ -117,5 +120,4 @@ def airbnb_etl_flow():
 
 
 if __name__ == "__main__":
-    # airbnb_etl_flow()
     airbnb_etl_flow()
