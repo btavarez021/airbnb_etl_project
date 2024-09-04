@@ -1,0 +1,51 @@
+###
+### A complete description of a Prefect Deployment for flow 'airbnb-deployment'
+###
+name: airbnb-deployment
+description: null
+version: 97ab7290dec4452fab166880d04a9557
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+work_pool_name: default-agent-pool
+tags: []
+parameters: {}
+schedule: null
+schedules:
+- schedule:
+    interval: 120.0
+    anchor_date: '2024-09-01T21:11:45.019000+00:00'
+    timezone: UTC
+  active: false
+is_schedule_active: null
+infra_overrides: {}
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: airbnb-deployment
+manifest_path: null
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  stream_output: true
+  working_dir: null
+  _block_document_id: 07c8d09a-98b8-4490-b025-1c174edc19bf
+  _block_document_name: anonymous-efdcb37a-601d-41a7-83f4-595d36580831
+  _is_anonymous: true
+  block_type_slug: process
+  _block_type_slug: process
+storage: null
+path: C:\Users\Benny\PycharmProjects\AirBnbProject
+entrypoint: AirBnbProject.py:airbnb_etl_flow
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties: {}
+  required: null
+  definitions: null
+timestamp: '2024-09-04T19:18:35.248380+00:00'
+triggers: []
+enforce_parameter_schema: null
