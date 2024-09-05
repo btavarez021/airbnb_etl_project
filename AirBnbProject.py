@@ -30,7 +30,7 @@ def load_csv_to_pandas(local_path: str):
     df = pd.read_csv(local_path)
 
     # Use REGEX to replace all $ with ''
-    df['price'] = df['price'].replace('[\$,]', '', regex=True).astype(float)
+    df['price'] = df['price'].replace('[\$,]', '', regex=True).astype(str)
 
     # Filter for min_nights = 0 and replace value for 1.
     # If it's not 1 then keep original value.
@@ -66,7 +66,7 @@ def upload_to_snowflake(df: pd.DataFrame, table_name: str, local_path: str):
                      room_type string,
                      minimum_nights integer,
                      host_id integer,
-                     price NUMBER(10, 2),
+                     price string,
                      created_at datetime,
                      updated_at datetime);
     """

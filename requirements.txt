@@ -3,3 +3,5 @@ pip install snowflake-connector-python
 pip install pandas
 pip install botocore
 pip install boto3
+pip install snowflake-sqlalchemy
+import pytest
